@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
-    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./configs/sequelize.js",
-    "lint": "./node_modules/.bin/eslint --format codeframe .",
-    "lint:fix": "./node_modules/.bin/eslint --fix --format codeframe ."
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev:client:build && env-cmd nodemon index.js",
+    "dev:migrate": "env-cmd sequelize db:migrate --env development --config ./configs/sequelize.js",
+    "lint": "eslint --format codeframe .",
+    "lint:fix": "eslint --fix --format codeframe .",
+    "dev:client:build": "cd client && npm run build",
+    "dev:client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
