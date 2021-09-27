@@ -11,10 +11,10 @@ app.use(cors())
 app.use(express.static('client/build'))
 
 app.get('/api/authors', getAllAuthors)
-app.get('/authors/:identifier', getAuthorByIdOrName)
+app.get('/api/authors/:identifier', getAuthorByIdOrName)
 
 app.get('/api/genres', getAllGenres)
-app.get('/genres/:id', getGenreById)
+app.get('/api/genres/:id', getGenreById)
 
 app.get('/api/novels', getAllNovels)
 app.get('/api/novels/:identifier', getNovelByIdOrTitle)

@@ -10,7 +10,8 @@
     "lint": "eslint --format codeframe .",
     "lint:fix": "eslint --fix --format codeframe .",
     "dev:client:build": "cd client && npm run build",
-    "dev:client": "cd client && npm start"
+    "dev:client": "cd client && npm start",
+    "dev:migrate:undo": "env-cmd sequelize db:migrate:undo:all --env development --config ./configs/sequelize.js"
   },
   "repository": {
     "type": "git",
